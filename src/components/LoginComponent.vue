@@ -9,8 +9,8 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" name="login" label="Login" type="text"></v-text-field>
-                  <v-text-field id="password" prepend-icon="lock" name="password" label="Hasło" type="password"></v-text-field>
+                  <v-text-field v-model="login" prepend-icon="person" label="Login" type="text"></v-text-field>
+                  <v-text-field v-model="password" prepend-icon="lock" label="Hasło" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -26,6 +26,12 @@
 
 <script>
 export default {
+  data () {
+    return {
+      login: null,
+      password: null
+    }
+  }
 }
 </script>
 
