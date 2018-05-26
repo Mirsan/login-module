@@ -9,13 +9,13 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field v-model="login" prepend-icon="person" label="Login" type="text"></v-text-field>
+                  <v-text-field v-model="user" prepend-icon="person" label="Login" type="text"></v-text-field>
                   <v-text-field v-model="password" prepend-icon="lock" label="Hasło" type="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">Zaloguj</v-btn>
+                <v-btn color="primary" @click="login()">Zaloguj</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -25,11 +25,22 @@
 </template>
 
 <script>
+import store from './../vuex/store'
+
 export default {
   data () {
     return {
-      login: null,
+      user: null,
       password: null
+    }
+  },
+  store,
+  methods: {
+    login () {
+      this.$store.dispatch('login', {user: this.user, password: this.password})
+        .then(result => {
+          this.$router.push('/home')
+        })
     }
   }
 }

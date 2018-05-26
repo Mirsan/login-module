@@ -1,24 +1,22 @@
 <template>
   <div id="app">
     <v-app id="inspire">
-      <login-component></login-component>
+      <router-view></router-view>
     </v-app>
-    <router-view/>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import LoginComponent from './components/LoginComponent'
+import VueRouter from 'vue-router'
 
 Vue.use(Vuetify)
+Vue.use(VueRouter)
 
 export default {
   name: 'App',
-  components: {
-    LoginComponent
-  }
+  VueRouter
 }
 </script>
 
