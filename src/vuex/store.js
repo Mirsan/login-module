@@ -9,7 +9,8 @@ Vue.use(Vuex)
 const state = {
   isLoggedIn: !!localStorage.getItem('token'),
   // main settings
-  host: `http://localhost:3000/`
+  host: `http://localhost:3000/`,
+  user: null
 }
 
 export default new Vuex.Store({
